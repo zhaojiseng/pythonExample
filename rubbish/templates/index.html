@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>垃圾分类</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favction.ico" />
+</head>
+<style type="text/css">
+    #la{
+        color: blue;
+    }
+</style>
+<script type="text/javascript">
+    function load() {
+            var get = window.location.href;
+            content = /rubbish=.*/.exec(get)[0];
+            document.getElementById("rubbish").value =  decodeURI(content.replace(/rubbish=/, ""));
+        }
+</script>
+<body onload="load()">
+<script type="text/javascript">
+    function changeURLArg(url,arg,arg_val){
+        var text = url.replace(/\?.*?$/i, "");
+        return text + "?" + arg + "=" + encodeURI(arg_val);
+    }
+    function f(){
+        if (document.getElementById("rubbish").value !== ""){
+            window.location.href = changeURLArg(window.location.href,'rubbish',document.getElementById("rubbish").value)
+        }
+    }
+</script>
+
+<label>你是什么垃圾：</label><label for="rubbish"></label>
+<input id="rubbish" type="text" onchange="f()" >
+<br/>
+<label>垃圾类型：</label><label id="la">{{content}}</label>
+<br/>
+</body>
+</html>
