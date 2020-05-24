@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>帮助修改/增加</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favction.ico" />
+</head>
+<body>
+<script type="text/javascript">
+    function put() {
+        var form = document.getElementById("put")
+        if (document.getElementById("name").value === ""){
+            alert("请输入垃圾名!")
+        }
+        else {
+            form.submit()
+        }
+    }
+</script>
+<form method="post" id="put" action="change.html">
+    <label>垃圾名称：</label><input name="name" type="text">
+    <br/>
+    <label>垃圾类型：</label>
+    <select name="type">
+        <option value="1">干垃圾</option>
+        <option value="2">湿垃圾</option>
+        <option value="3">可回收垃圾</option>
+        <option value="4">有害垃圾</option>
+    </select>
+    <button onclick="put()">确定</button>
+</form>
+</body>
+</html>
